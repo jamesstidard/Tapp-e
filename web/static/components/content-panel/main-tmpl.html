@@ -1,0 +1,14 @@
+<!-- ContentPanel -->
+<div class="ContentPanel">
+	<!-- Content -->
+	<div class="tap-bounds noselect transition-base" data-bind="click: tap, css: { 'tap-bounds-invert': invert_tap }">
+		<div class="tap transition-base" data-bind="css: state"></div>
+		<h1 class="score" data-bind="text: score"></h1>
+	</div>
+	<h1 class="title transition-base" data-bind="css: state">
+		<span data-bind="text: finished">Go</span>
+		<i class="fa fa-refresh fa-fw" data-bind="visible: state() != 'go', click: refresh"></i>
+	</h1>
+</div>
+
+<div data-bind="template:{ afterRender: $component.init.bind($component) }"></div>

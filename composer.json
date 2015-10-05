@@ -1,0 +1,11 @@
+{
+  "require" : {
+    "ext-mbstring": "*",
+    "oliverdashiell/utilise-php": "dev-master"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*",
+    "ext-mbstring": "*"
+  },
+  "minimum-stability": "dev"
+}
