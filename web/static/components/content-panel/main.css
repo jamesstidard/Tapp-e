@@ -12,7 +12,7 @@
 	width: 100px;
   	height: 100px;
 
-  	margin: 20% auto 10px auto;
+  	margin: 60% auto 10px auto;
   	border-radius: 50%;
 
     opacity: 0.6;
@@ -61,6 +61,7 @@
 	width: 100%;
 	margin-top: 22px;
 
+	font-size: 5.0rem;
     color: white;
 	text-align: center;
 }
@@ -87,11 +88,34 @@
 }
 
 
-.ContentPanel
-.transition-base {
-    -webkit-transition: 0.2s;
-       -moz-transition: 0.2s;
-        -ms-transition: 0.2s;
-         -o-transition: 0.2s;
-            transition: 0.2s;
+/* Larger than phablet */
+@media (min-width: 550px) {
+	.ContentPanel
+	.tap-bounds {
+		margin-top: 50%;
+	}
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+	.ContentPanel
+	.tap-bounds {
+		margin-top: 40%;
+	}
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+	.ContentPanel
+	.tap-bounds {
+		margin-top: 30%;
+	}
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+	.ContentPanel
+	.tap-bounds {
+		margin-top: 20%;
+	}
 }

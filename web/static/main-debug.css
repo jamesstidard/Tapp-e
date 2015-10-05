@@ -95,6 +95,15 @@ input[type="password"]:focus, textarea:focus, select:focus {
     user-select: none;
 }
 
+.ContentPanel
+.transition-base {
+    -webkit-transition: 0.2s;
+       -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+         -o-transition: 0.2s;
+            transition: 0.2s;
+}
+
 
 /* ---- Media Queries ---- */
 
