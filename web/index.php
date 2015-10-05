@@ -2,7 +2,7 @@
 
 /* Debug Vars
 ———————————————————————————————————————*/
-$mode = 'built';
+$mode = 'debug';
 
 ?>
 <!DOCTYPE html>
@@ -27,6 +27,16 @@ $mode = 'built';
 
 		<!-- main css -->
 		<link rel="stylesheet" href="static/main-<?php echo $mode; ?>.css" />
+
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-68494819-1', 'auto');
+			ga('send', 'pageview');
+		</script>
 	</head>
 	<body>
 		<div id="loading-placeholder" class="spinner" data-bind="visible:loading, click:app.start">

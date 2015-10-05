@@ -98,12 +98,6 @@
 	color: #88D5D4;
 }
 
-.ContentPanel
-.ping-fail {
-	opacity: 0.6;
-	background-color: #D86A5C;
-}
-
 
 /* Larger than phablet */
 @media (min-width: 550px) {

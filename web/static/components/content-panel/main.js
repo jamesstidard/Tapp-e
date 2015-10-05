@@ -25,12 +25,12 @@ define([
 
 			this.state = ko.computed(function() {
 				return this.finished().toLowerCase();
-			}, this);
+			},this);
 
 			this.finished.subscribe(function(value){
-				if( value != 'Go' && this.score() > this.high_score() ){
+				if( value != 'Go' && this.score() > this.high_score() ) {
 					this.high_score( this.score() );
-				};
+				}
 			},this);
 		}
 
