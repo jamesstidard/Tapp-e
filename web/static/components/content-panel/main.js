@@ -13,6 +13,7 @@ define([
 			this.last_tap   = ko.observable();
 			this.timer      = ko.observable();
 			this.finished   = ko.observable('Go');
+			this.high_score = ko.observable(0);
 
 			this.score = ko.computed(function(){
 				return this.deltas().length;
@@ -25,6 +26,12 @@ define([
 			this.state = ko.computed(function() {
 				return this.finished().toLowerCase();
 			}, this);
+
+			this.finished.subscribe(function(value){
+				if( value != 'Go' && this.score() > this.high_score() ){
+					this.high_score( this.score() );
+				};
+			},this);
 		}
 
 		ContentPanel.prototype.init = function() {

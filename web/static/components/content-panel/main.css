@@ -87,6 +87,17 @@
 	color: #D86A5C;
 }
 
+.ContentPanel
+.high-score {
+	position: absolute;
+	bottom: 0px;
+
+	width: 100%;
+	text-align: center;
+
+	color: #88D5D4;
+}
+
 
 /* Larger than phablet */
 @media (min-width: 550px) {

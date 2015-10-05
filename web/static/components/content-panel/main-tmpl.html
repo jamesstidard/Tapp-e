@@ -11,6 +11,10 @@
 		<span data-bind="text: finished">Go</span>
 		<i class="fa fa-refresh fa-fw" data-bind="visible: state() != 'go', click: refresh"></i>
 	</h1>
+	<h1 class="high-score">
+		High Score: 
+		<span data-bind="text: high_score"></span>
+	</h1>
 </div>
 
 <div data-bind="template:{ afterRender: $component.init.bind($component) }"></div>
