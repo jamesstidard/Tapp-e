@@ -98,8 +98,7 @@ define([
 			}
 		};
 
-		ContentPanel.prototype.tap_mobile = function(event) {
-			this.finished("Mobile");
+		ContentPanel.prototype.tap_mobile = function(data, event) {
 			this.tap();
 			event.preventDefault();
 		};
