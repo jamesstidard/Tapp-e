@@ -61,8 +61,6 @@ define([
 		};
 
 		ContentPanel.prototype.tap = function() {
-			// debugger;
-
 			// check if game has finished
 			if( this.finished() == 'Finished' || this.finished() == 'Fail' ) {
 				return;
@@ -101,10 +99,9 @@ define([
 		};
 
 		ContentPanel.prototype.tap_mobile = function(event) {
-			this.finished("mobile");
-			console.log(event);
+			this.finished("Mobile");
 			this.tap();
-			// event.preventDefault();
+			event.preventDefault();
 		};
 
 		return {
