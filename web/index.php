@@ -2,7 +2,7 @@
 
 /* Debug Vars
 ———————————————————————————————————————*/
-$mode = 'debug';
+$mode = 'built';
 
 ?>
 <!DOCTYPE html>
