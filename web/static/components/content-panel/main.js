@@ -101,9 +101,10 @@ define([
 		};
 
 		ContentPanel.prototype.tap_mobile = function(event) {
+			this.finished("mobile");
 			console.log(event);
 			this.tap();
-			event.preventDefault();
+			// event.preventDefault();
 		};
 
 		return {
