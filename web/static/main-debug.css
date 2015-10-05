@@ -105,45 +105,6 @@ input[type="password"]:focus, textarea:focus, select:focus {
 }
 
 
-/* ---- Media Queries ---- */
-
-/* Larger than mobile */
-@media (min-width: 400px) {}
-
-/* Larger than phablet */
-@media (min-width: 550px) {}
-
-/* Larger than tablet */
-@media (min-width: 750px) {}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}
-
-/** ie10mobile.css **/
-@-webkit-viewport {
-    width: device-width;
-}
-
-@-moz-viewport {
-    width: device-width;
-}
-
-@-ms-viewport {
-    width: device-width;
-}
-
-@-o-viewport {
-    width: device-width;
-}
-
-@viewport {
-    width: device-width;
-}
-
-
 /* ---- Spinny ---- */
 
 .spinner {
@@ -151,7 +112,7 @@ input[type="password"]:focus, textarea:focus, select:focus {
     height: 100px;
 
     position: relative;
-    margin: 20% auto;
+    margin: 60% auto 0px auto;
 }
 
 .double-bounce1, .double-bounce2 {
@@ -186,4 +147,57 @@ input[type="password"]:focus, textarea:focus, select:focus {
         transform: scale(1.0);
         -webkit-transform: scale(1.0);
     }
+}
+
+
+/* ---- Media Queries ---- */
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    .spinner {
+        margin-top: 50%;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+    .spinner {
+        margin-top: 40%;
+    }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+    .spinner {
+        margin-top: 30%;
+    }
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+    .spinner {
+        margin-top: 20%;
+    }
+}
+
+
+/** ie10mobile.css **/
+@-webkit-viewport {
+    width: device-width;
+}
+
+@-moz-viewport {
+    width: device-width;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+@-o-viewport {
+    width: device-width;
+}
+
+@viewport {
+    width: device-width;
 }

@@ -2,7 +2,7 @@
 <div class="ContentPanel noselect">
 	<!-- Content -->
 	<div class="tap-bounds transition-base" data-bind="click: tap, 
-													   event: { vclick: tap }, 
+													   event: { touchStart: tap_mobile }, 
 													   css: { 'tap-bounds-invert': invert_tap }">
 		<div class="tap transition-base" data-bind="css: state"></div>
 		<h1 class="score" data-bind="text: score"></h1>

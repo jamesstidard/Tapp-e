@@ -100,6 +100,12 @@ define([
 			}
 		};
 
+		ContentPanel.prototype.tap_mobile = function(event) {
+			console.log(event);
+			this.tap();
+			event.preventDefault();
+		};
+
 		return {
 			template: main_tmpl,
 			viewModel: ContentPanel
