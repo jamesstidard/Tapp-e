@@ -39,7 +39,7 @@
 			<h1 class="score" v-text="score"></h1>
 		</div>
 		<h1 class="title transition-base" v-bind:class="state">
-			<span v-text="finished">Go</span>
+			<span v-text="state_label">Go</span>
 			<i class="fa fa-refresh fa-fw" v-show="show_refresh" v-on:click="refresh"></i>
 		</h1>
 		<h1 class="high-score">

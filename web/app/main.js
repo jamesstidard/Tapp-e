@@ -1,6 +1,8 @@
 // JS Imports
 import Vue from "vue";
 
+// Vue.config.debug = true;
+
 // CSS Imports
 import "./main.css!";
 import "jspm_packages/npm/font-awesome@4.5.0/css/font-awesome.min.css!";
@@ -16,8 +18,11 @@ function set_heights() {
     // console.log('width: '  + width);
 };
 
+// app states (change labels here for what displays on screen for each state)
 var states = {
-	go: 'Go'
+	go: 'go',
+	finished: 'finished',
+	fail: 'fail'
 }
 
 var app = new Vue({
@@ -27,7 +32,7 @@ var app = new Vue({
 		deltas     : [],
 		last_tap   : null,
 		timer      : null,
-		finished   : 'Go',
+		state      : states.go,
 		high_score : 0
 	},
 	computed: {
@@ -35,13 +40,13 @@ var app = new Vue({
 			return this.deltas.length;
 		},
 		invert_tap() {
-			return (this.score % 2) || this.finished != 'Go';
+			return (this.score % 2) || this.state != states.finished;
 		},
-		state() {
-			return this.finished.toLowerCase();
+		state_label() {
+			return this.state.charAt(0).toUpperCase() + this.state.slice(1); // capitalise state
 		},
 		show_refresh() {
-			return (this.state != 'go');
+			return (this.state != states.go);
 		}
 	},
 	watch: {
@@ -51,12 +56,12 @@ var app = new Vue({
 	},
 	methods: {
 		refresh() {
-			this.deltas   = [];
-			this.finished = 'Go';
+			this.deltas = [];
+			this.state  = states.go;
 		},
 		tap() {
 			// check if game has finished
-			if( this.finished == 'Finished' || this.finished == 'Fail' ) return;
+			if( this.state == states.finished || this.state == states.fail ) return;
 
 			// get timestamp
 			var now = Date.now();
@@ -65,7 +70,7 @@ var app = new Vue({
 			if( this.score == 0 ) {
 				// begin timer
 				this.timer = setTimeout( 
-					() => { this.finished = 'Finished' }, 
+					() => { this.state = states.finished }, 
 					this.time_limit
 				);
 
@@ -87,7 +92,7 @@ var app = new Vue({
 			else {
 				// fail
 				clearTimeout( this.timer );
-				this.finished = 'Fail';
+				this.state = states.fail;
 			}
 		}
 	},
