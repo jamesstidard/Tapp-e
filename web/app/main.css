@@ -1,0 +1,318 @@
+/* ---- Colours ---- */
+/* Primary   
+    #88D5D5
+*/
+
+/* Secondary 
+    #FFF
+*/
+
+/* Highlight 
+    #8EDEDE
+*/
+
+/* Paletton
+    http://paletton.com/#uid=13i0I0kb-NPbfT4bvQBbsKJb3Hp
+*/
+
+
+/* ---- Font Imports ---- */
+/* Comment out if importing fonts from JS or from HTML */
+/*
+@import url(https://fonts.googleapis.com/css?family=Arvo);
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+*/
+
+
+/* ---- General CSS ---- */
+
+body {
+    position: absolute;
+
+    height: 100%;
+     width: 100%;
+
+    overflow: hidden;
+    margin: 0px;
+
+    font-family: 'Oswald', sans-serif;
+}
+
+h1,h2,h3,h4,.title {
+    font-family: 'Arvo', serif;
+}
+
+button, a, .button {
+    font-family: 'Arvo', serif;
+
+    text-transform: none;
+    letter-spacing: normal;
+    border-radius: 2px;
+}
+
+button, a, .button {
+    background-color: #FFDE8D;
+    border-color: #FFDE8D;
+    color: #fff;
+}
+
+button:hover, a:hover, .button:hover {
+    background-color: #F9D068;
+    border-color: #F9D068;
+    color: #fff;
+}
+
+button:active, a:active, .button:active {
+    color: #FFDE8D;
+    -webkit-box-shadow: inset 5px 5px 30px 5px rgba(0,0,0,0.3);
+       -moz-box-shadow: inset 5px 5px 30px 5px rgba(0,0,0,0.3);
+            box-shadow: inset 5px 5px 30px 5px rgba(0,0,0,0.3);
+}
+
+button:focus, a:focus, .button:focus {
+    background-color: #FFDE8D;
+}
+
+button:focus, a:focus, .button:focus,
+input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus,
+input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus,
+input[type="password"]:focus, textarea:focus, select:focus {
+    border-color: #FFDE8D;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+
+.transition-base {
+    -webkit-transition: 0.2s;
+       -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+         -o-transition: 0.2s;
+            transition: 0.2s;
+}
+
+/* ---- Scrollbar ---- */ 
+
+::-webkit-scrollbar{ 
+    width: 5px; 
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb { 
+    background-color: #7EC1C1; 
+    border-radius: 0; 
+}
+
+::-webkit-scrollbar-track{
+    background-color: #DDDDDD;
+}
+
+
+/* ---- Base ---- */
+#Main {
+    position: absolute;
+
+    height: 100%;
+     width: 100%;
+
+    overflow: hidden;
+
+    /*background-color: #7EC1C1;*/
+}
+
+#Main
+.tap-bounds {
+    position: relative;
+
+    width: 100px;
+    height: 100px;
+
+    margin: 10% auto 10px auto;
+    border-radius: 50%;
+
+    opacity: 0.6;
+}
+
+#Main
+.tap-bounds-invert {
+    opacity: 1;
+}
+
+#Main
+.tap-bounds
+.tap {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background-color: #88D5D4;
+}
+
+#Main
+.tap-bounds
+.finished {
+    opacity: 1;
+    background-color: #5ED27B;
+}
+
+#Main
+.tap-bounds
+.fail {
+    opacity: 1;
+    background-color: #D86A5C;
+}
+
+#Main
+.score {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    margin-top: 24px;
+
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+}
+
+#Main
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+#Main
+.go {
+    color: #88D5D4;
+}
+
+#Main
+.finished {
+    color: #5ED27B;
+}
+
+#Main
+.fail {
+    color: #D86A5C;
+}
+
+#Main
+.high-score {
+    position: absolute;
+    bottom: 0px;
+
+    width: 100%;
+    text-align: center;
+
+    color: #88D5D4;
+}
+
+
+/* ---- Spinny ---- */
+
+.spinner {
+    width: 100px;
+    height: 100px;
+
+    position: relative;
+    margin: 10% auto 0px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #88D5D4;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+    0%, 100% { 
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% { 
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+
+/* ---- Media Queries ---- */
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    .tap-bounds {
+        margin-top: 50%;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+    .tap-bounds {
+        margin-top: 40%;
+    }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+    .tap-bounds {
+        margin-top: 30%;
+    }
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+    .tap-bounds {
+        margin-top: 20%;
+    }
+}
+
+
+/** IE 10 Mobile CSS **/
+@-webkit-viewport {
+    width: device-width;
+}
+
+@-moz-viewport {
+    width: device-width;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+@-o-viewport {
+    width: device-width;
+}
+
+@viewport {
+    width: device-width;
+}
