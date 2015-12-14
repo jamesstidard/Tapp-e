@@ -219,6 +219,85 @@ input[type="password"]:focus, textarea:focus, select:focus {
     color: #88D5D4;
 }
 
+#Main
+.ranking {
+    position: absolute;
+    margin-top:  10px;
+    margin-left: 10%;
+
+    font-size: 1.5em;
+    color: white;
+    background-color: #88D5D4;
+}
+
+#Main
+.ranking 
+.ranking-title {
+    padding: 10px 15px;
+}
+
+#Main
+.ranking 
+.ranking-content {
+    width: 100%;
+    margin: 0px;
+    padding: 10px 0px;
+
+    background-color: #b4e4e4;
+}
+
+#Main .ranking .ranking-content
+.score-entry,
+#Main .ranking .ranking-content
+.entry-title {
+    padding-bottom: 5px;
+    border: none;
+}
+
+#Main .ranking .ranking-content .score-entry 
+td {
+    padding: 0px 10px;
+    text-align: center;
+}
+
+#Main .ranking .ranking-content .entry-title 
+td {
+    padding-bottom: 3px;
+}
+
+#Main .ranking .ranking-content .score-entry
+.middle-col {
+    text-align: left;
+}
+
+#Main
+.ranking .ranking-content
+.my-score {
+    background-color: #5ED27B;
+}
+
+#Main
+.user-box {
+    position: absolute;
+    top:   10px;
+    right: 10%;
+
+    padding: 5px 15px;
+
+    display: block;
+
+    width: 100px;
+    height: 40px;
+
+    color: white;
+    background-color: #88D5D4;
+
+    font-family: 'Arvo', serif;
+    font-size: 2em;
+
+    border: none;
+}
+
 
 /* ---- Spinny ---- */
 

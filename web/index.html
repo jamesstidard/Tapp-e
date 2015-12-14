@@ -34,6 +34,24 @@
 	</div>
 
 	<div id="Main" v-cloak>
+		<h1 class="ranking">
+			<div class="ranking-title">Global Rankings:</div>
+			<table class="ranking-content" cellspacing="0">
+				<tr class="score-entry entry-title">
+					<td>#</td>
+					<td class="middle-col">Name</td>
+					<td><i class="fa fa-hand-pointer-o"></i></td>
+				</tr>
+				<tr class="score-entry" v-for="score in rankings" v-bind:class="{ 'my-score' : my_entry == score.uid }">
+					<td v-text="$index+1"></td>
+					<td v-text="score.name" class="middle-col"></td>
+					<td v-text="score.value"></td>
+				</tr>
+			</table>
+		</h1>
+
+		<input class="user-box" type="text" v-model="user" placeholder="NAME" maxlength="4">
+
 		<div class="tap-bounds transition-base" v-on:click="tap" v-bind:class="{ 'tap-bounds-invert': invert_tap }">
 		<div class="tap transition-base" v-bind:class="state"></div>
 			<h1 class="score" v-text="score"></h1>
@@ -49,6 +67,7 @@
 	</div>
 
 	<!-- include system to load packages, parse config and import the app entry point -->
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script type="text/javascript" src="jspm_packages/system.js"></script>
 	<script type="text/javascript" src="config.js"></script>
 	<script type="text/javascript">
