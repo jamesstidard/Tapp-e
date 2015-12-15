@@ -1,14 +1,14 @@
 // JS Imports
-import Vue from "vue";
-import Firebase from "firebase";
+import Vue from "vue"
+import Firebase from "firebase"
 
 // Vue.config.debug = true;
 
 // CSS Imports
-import "./main.css!";
-import "jspm_packages/npm/font-awesome@4.5.0/css/font-awesome.min.css!";
+import "./main.css!"
+// import "jspm_packages/npm/font-awesome@4.5.0/css/font-awesome.min.css!"
 
-var Highscores = new Firebase("https://tapp-e.firebaseio.com/highscores");
+var Highscores = new Firebase("https://tapp-e.firebaseio.com/highscores")
 
 // map object from firebase to highscore
 function score_from_snap(snap) {
@@ -16,8 +16,8 @@ function score_from_snap(snap) {
 		uid:   snap.key(),
 		name:  snap.val().name,
 		value: snap.val().value
-	};
-};
+	}
+}
 
 // for dynamically scaling elements put element height calculations here
 function set_heights() {
@@ -27,21 +27,22 @@ function set_heights() {
 
     // console.log('height: ' + height);
     // console.log('width: '  + width);
-};
+}
 
-// app states (change labels here for what displays on screen for each state)
+// app states and globals (change labels here for what displays on screen for each state)
+var ranks = 10;
 var states = {
 	go: 'go',
-	finished: 'finished',
 	fail: 'fail',
-	loading: 'connecting'
+	finished: 'finished',
+	loading: 'connecting',
+	loaded: 'connected'
 }
-var ranks = 10;
 
 var app = new Vue({
 	el: 'body',
 	data: {
-		user 		: "AAAA",
+		user 		: null,
 		time_limit  : 10000,
 		deltas      : [],
 		last_tap    : null,
@@ -77,21 +78,27 @@ var app = new Vue({
 			this.high_score = this.score > this.high_score ? this.score : this.high_score;
 
 			// add to highscores
-			if(this.my_entry) {
-				// update score for this session
-				Highscores.child(this.my_entry).update({value: this.score});
-			}
-			else if(this.my_entry == null) {
-				// add score to rankings
-				this.my_entry = Highscores.push({ name: this.user, value: this.score }).key();
+			if(this.user) {
+				if(this.my_entry) {
+					// update score for this session
+					Highscores.child(this.my_entry).update({value: this.score});
+				}
+				else if(this.my_entry == null) {
+					// add score to rankings
+					this.my_entry = Highscores.push({ name: this.user, value: this.score }).key();
+				}
 			}
 		}
 	},
 	methods: {
 		refresh() {
+			// reset values
 			this.deltas   = [];
 			this.state    = states.go;
 			this.my_entry = null;
+
+			// clear timer
+			if(this.timer) clearTimeout( this.timer );
 		},
 		tap() {
 			// check if game has finished
@@ -166,4 +173,5 @@ var app = new Vue({
 	}
 });
 
+// assign to window
 window.app = app;

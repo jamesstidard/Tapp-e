@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en-gb"><head><title>Tapp-e</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><link rel="icon" type="image/png" href="static/images/favicon.ico"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Arvo);
+		@import url(https://fonts.googleapis.com/css?family=Oswald);</style><style type="text/css">[v-cloak] { display:none;  } 
+
+		.spinner { display:none; }
+		[v-cloak].spinner { display:block; }
+
+
+		/* ---- Spinny ---- */
+		.spinner {
+		    width: 100px;
+		    height: 100px;
+
+		    position: relative;
+		    margin: 10% auto 0px auto;
+		}
+
+		.double-bounce1, .double-bounce2 {
+		    width: 100%;
+		    height: 100%;
+		    border-radius: 50%;
+		    background-color: #88D5D4;
+		    opacity: 0.6;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+
+		    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+		    animation: sk-bounce 2.0s infinite ease-in-out;
+		}
+
+		.double-bounce2 {
+		    -webkit-animation-delay: -1.0s;
+		    animation-delay: -1.0s;
+		}
+
+		@-webkit-keyframes sk-bounce {
+		    0%, 100% { -webkit-transform: scale(0.0) }
+		    50% { -webkit-transform: scale(1.0) }
+		}
+
+		@keyframes sk-bounce {
+		    0%, 100% { 
+		        transform: scale(0.0);
+		        -webkit-transform: scale(0.0);
+		    } 50% { 
+		        transform: scale(1.0);
+		        -webkit-transform: scale(1.0);
+		    }
+		}</style></head><body class="noselect"><div id="loading-placeholder" class="spinner" v-cloak=""><div class="double-bounce1"></div><div class="double-bounce2"></div></div><div id="Main" v-cloak=""><h1 class="ranking"><div class="ranking-title">Global Rankings:</div><table class="ranking-content" cellspacing="0"><tr class="score-entry entry-title"><td>#</td><td class="middle-col">Name</td><td><i class="fa fa-hand-pointer-o"></i></td></tr><tr class="score-entry" v-for="score in rankings" v-bind:class="{ &apos;my-score&apos; : my_entry == score.uid }"><td v-text="$index+1"></td><td v-text="score.name" class="middle-col"></td><td v-text="score.value"></td></tr></table></h1><input class="user-box" type="text" v-model="user" placeholder="NAME" maxlength="4"><div class="tap-bounds transition-base" v-on:click="tap" v-bind:class="{ &apos;tap-bounds-invert&apos;: invert_tap }"><div class="tap transition-base" v-bind:class="state"></div><h1 class="score" v-text="score"></h1></div><h1 class="title transition-base" v-bind:class="state"><span v-text="state_label">Go</span> <i class="fa fa-refresh fa-fw" v-show="show_refresh" v-on:click="refresh"></i></h1><h1 class="high-score">High Score: <span v-text="high_score"></span></h1></div><script src="app.min.js"></script></body></html>

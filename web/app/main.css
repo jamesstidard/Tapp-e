@@ -281,68 +281,38 @@ td {
     position: absolute;
     top:   10px;
     right: 10%;
+}
 
+#Main
+.user-box
+.user-input {
     padding: 5px 15px;
 
     display: block;
 
-    width: 100px;
+    width: 105px;
     height: 40px;
 
-    color: white;
     background-color: #88D5D4;
-
-    font-family: 'Arvo', serif;
+    color: white;
     font-size: 2em;
+    font-family: 'Arvo', serif;
 
     border: none;
 }
 
-
-/* ---- Spinny ---- */
-
-.spinner {
-    width: 100px;
-    height: 100px;
-
-    position: relative;
-    margin: 10% auto 0px auto;
+#Main
+.user-box
+.user-notice {
+    color: #88D5D4;
+    width: 120px;
+    text-align: center;
+    margin: 8px;
 }
 
-.double-bounce1, .double-bounce2 {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #88D5D4;
-    opacity: 0.6;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-    animation: sk-bounce 2.0s infinite ease-in-out;
-}
-
-.double-bounce2 {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
-}
-
-@-webkit-keyframes sk-bounce {
-    0%, 100% { -webkit-transform: scale(0.0) }
-    50% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes sk-bounce {
-    0%, 100% { 
-        transform: scale(0.0);
-        -webkit-transform: scale(0.0);
-    } 50% { 
-        transform: scale(1.0);
-        -webkit-transform: scale(1.0);
-    }
-}
-
+::-webkit-input-placeholder { color: #C7EBEB; }
+     :-ms-input-placeholder { color: #C7EBEB; }
+         ::-moz-placeholder { color: #C7EBEB; }
 
 /* ---- Media Queries ---- */
 

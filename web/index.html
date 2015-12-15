@@ -12,6 +12,9 @@
 	<!-- favicon -->
 	<link rel="icon" type="image/png" href="static/images/favicon.ico"/>
 
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 	<!-- font imports -->
 	<style type="text/css">
 		@import url(https://fonts.googleapis.com/css?family=Arvo);
@@ -24,9 +27,53 @@
 
 		.spinner { display:none; }
 		[v-cloak].spinner { display:block; }
+
+
+		/* ---- Spinny ---- */
+		.spinner {
+		    width: 100px;
+		    height: 100px;
+
+		    position: relative;
+		    margin: 10% auto 0px auto;
+		}
+
+		.double-bounce1, .double-bounce2 {
+		    width: 100%;
+		    height: 100%;
+		    border-radius: 50%;
+		    background-color: #88D5D4;
+		    opacity: 0.6;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+
+		    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+		    animation: sk-bounce 2.0s infinite ease-in-out;
+		}
+
+		.double-bounce2 {
+		    -webkit-animation-delay: -1.0s;
+		    animation-delay: -1.0s;
+		}
+
+		@-webkit-keyframes sk-bounce {
+		    0%, 100% { -webkit-transform: scale(0.0) }
+		    50% { -webkit-transform: scale(1.0) }
+		}
+
+		@keyframes sk-bounce {
+		    0%, 100% { 
+		        transform: scale(0.0);
+		        -webkit-transform: scale(0.0);
+		    } 50% { 
+		        transform: scale(1.0);
+		        -webkit-transform: scale(1.0);
+		    }
+		}
 	</style>
 </head>
-<body class="noselect">
+<body class="noselect" v-on:keyup.space="tap" v-on:keyup.enter="refresh">
 
 	<div id="loading-placeholder" class="spinner" v-cloak>
 		<div class="double-bounce1"></div>
@@ -50,7 +97,10 @@
 			</table>
 		</h1>
 
-		<input class="user-box" type="text" v-model="user" placeholder="NAME" maxlength="4">
+		<div class="user-box">
+			<input class="user-input" type="text" v-model="user" placeholder="________" maxlength="4">
+			<div class="user-notice" v-show="!user">Type your name to enter a high score.</div>
+		</div>
 
 		<div class="tap-bounds transition-base" v-on:click="tap" v-bind:class="{ 'tap-bounds-invert': invert_tap }">
 		<div class="tap transition-base" v-bind:class="state"></div>
@@ -67,7 +117,6 @@
 	</div>
 
 	<!-- include system to load packages, parse config and import the app entry point -->
-	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script type="text/javascript" src="jspm_packages/system.js"></script>
 	<script type="text/javascript" src="config.js"></script>
 	<script type="text/javascript">
