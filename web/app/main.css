@@ -36,6 +36,8 @@ body {
     margin: 0px;
 
     font-family: 'Oswald', sans-serif;
+
+    cursor: pointer;
 }
 
 h1,h2,h3,h4,.title {
@@ -136,12 +138,12 @@ input[type="password"]:focus, textarea:focus, select:focus {
     margin: 10% auto 10px auto;
     border-radius: 50%;
 
-    opacity: 0.6;
+    opacity: 1;
 }
 
 #Main
 .tap-bounds-invert {
-    opacity: 1;
+    opacity: 0.6;
 }
 
 #Main

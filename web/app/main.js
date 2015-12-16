@@ -29,6 +29,40 @@ function set_heights() {
     // console.log('width: '  + width);
 }
 
+// NOT IN USE //
+function generate_fa_cursor() {
+	// setup canvas and attributes
+    var canvas  = document.createElement("canvas"); 	
+
+    // get client device settings
+    var context = canvas.getContext("2d"),
+    	    dpr = window.devicePixelRatio || 1,
+    	    bsr = context.webkitBackingStorePixelRatio ||
+              	     context.mozBackingStorePixelRatio ||
+              	      context.msBackingStorePixelRatio ||
+              	       context.oBackingStorePixelRatio ||
+              	        context.backingStorePixelRatio || 1;
+
+    // calculate the aspect ratio
+    var px_ratio = dpr/bsr,
+    	  aspect = 48*px_ratio;
+
+    // set canvas size
+    canvas.width = canvas.height = aspect;
+
+    // prepare draw settings
+    context.fillStyle    = "#fff";
+    context.font         = "24px FontAwesome";
+    context.textAlign    = "center";
+    context.textBaseline = "middle";
+
+    // write character to canvas
+    context.fillText("\uf25a", 12, 12);
+
+    // export canvas to url
+    return canvas.toDataURL('image/png');
+}
+
 // app states and globals (change labels here for what displays on screen for each state)
 var ranks = 10;
 var states = {
@@ -57,7 +91,7 @@ var app = new Vue({
 			return this.deltas.length;
 		},
 		invert_tap() {
-			return (this.score % 2) || this.state != states.finished;
+			return (this.score % 2) && !(this.state == states.finished || this.state == states.fail);
 		},
 		state_label() {
 			return this.state.charAt(0).toUpperCase() + this.state.slice(1); // capitalise state
@@ -138,6 +172,10 @@ var app = new Vue({
 		}
 	},
 	ready() {
+		// set tap cursor
+		// var tap_bounds = document.getElementById("tap-bounds");
+		// tap_bounds.style.cursor = 'url('+generate_fa_cursor()+'), pointer';
+
 		// setup binding for window resize event
         window.onresize = set_heights;
 

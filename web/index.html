@@ -98,11 +98,11 @@
 		</h1>
 
 		<div class="user-box">
-			<input class="user-input" type="text" v-model="user" placeholder="________" maxlength="4">
+			<input class="user-input" type="text" v-model="user" placeholder="________" maxlength="4"/>
 			<div class="user-notice" v-show="!user">Type your name to enter a high score.</div>
 		</div>
 
-		<div class="tap-bounds transition-base" v-on:click="tap" v-bind:class="{ 'tap-bounds-invert': invert_tap }">
+		<div id="tap-bounds" class="tap-bounds transition-base" v-on:click="tap" v-bind:class="{ 'tap-bounds-invert': invert_tap }">
 		<div class="tap transition-base" v-bind:class="state"></div>
 			<h1 class="score" v-text="score"></h1>
 		</div>
